@@ -1,0 +1,183 @@
+{
+  "identity": {
+    "name": "L'Apprenti Boulanger",
+    "mission": "Formation technique ludique pour les boulangers de demain",
+    "tone": "Warm, educational, encouraging, professional but accessible",
+    "language": "fr"
+  },
+  "design_system": {
+    "colors": {
+      "palette": {
+        "primary": {
+          "DEFAULT": "#8B4513",
+          "light": "#A0522D",
+          "dark": "#5D2906",
+          "name": "Pain Brûlé (Burnt Bread)"
+        },
+        "secondary": {
+          "DEFAULT": "#E6C9A8",
+          "light": "#F5DEB3",
+          "dark": "#D2B48C",
+          "name": "Blé Doré (Golden Wheat)"
+        },
+        "accent": {
+          "DEFAULT": "#D2691E",
+          "hover": "#CD853F",
+          "name": "Croûte (Crust)"
+        },
+        "background": {
+          "DEFAULT": "#FAF9F6",
+          "paper": "#FFFFFF",
+          "name": "Farine (Flour White)"
+        },
+        "text": {
+          "primary": "#3E2723",
+          "secondary": "#5D4037",
+          "muted": "#8D6E63"
+        },
+        "feedback": {
+          "success": "#2E7D32",
+          "warning": "#F57C00",
+          "error": "#C62828",
+          "info": "#0277BD"
+        }
+      },
+      "usage": {
+        "body_bg": "bg-[#FAF9F6]",
+        "card_bg": "bg-white",
+        "primary_btn": "bg-[#8B4513] hover:bg-[#A0522D] text-white",
+        "secondary_btn": "bg-[#F5DEB3] hover:bg-[#D2B48C] text-[#3E2723]",
+        "text_main": "text-[#3E2723]",
+        "text_sub": "text-[#5D4037]"
+      }
+    },
+    "typography": {
+      "font_family": {
+        "heading": "Merriweather, serif",
+        "body": "Outfit, sans-serif"
+      },
+      "scale": {
+        "h1": "text-4xl md:text-5xl font-bold tracking-tight",
+        "h2": "text-3xl font-semibold tracking-tight",
+        "h3": "text-2xl font-semibold",
+        "p": "text-base md:text-lg leading-relaxed"
+      },
+      "google_fonts_import": "https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300&family=Outfit:wght@300;400;500;600;700&display=swap"
+    },
+    "spacing": {
+      "container": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+      "section_gap": "py-12 md:py-20",
+      "card_padding": "p-6 md:p-8"
+    },
+    "radius": {
+      "default": "rounded-xl",
+      "button": "rounded-full",
+      "card": "rounded-2xl"
+    },
+    "shadows": {
+      "card": "shadow-[0_2px_8px_rgba(139,69,19,0.08)]",
+      "card_hover": "shadow-[0_12px_24px_rgba(139,69,19,0.12)]",
+      "floating": "shadow-[0_8px_30px_rgba(0,0,0,0.12)]"
+    }
+  },
+  "layout_strategies": {
+    "landing_page": {
+      "structure": "Hero section with warm image overlay -> Introduction text -> 2x2 Grid of Game Modes -> Progress Summary",
+      "hero_image": "https://images.unsplash.com/photo-1772316721788-f5100b4e1c4b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1OTV8MHwxfHNlYXJjaHwxfHxzb3VyZG91Z2glMjBicmVhZCUyMGxvYWYlMjBvbiUyMHdvb2RlbiUyMHRhYmxlfGVufDB8fHx8MTc3MzQ5OTY0OXww&ixlib=rb-4.1.0&q=85",
+      "style": "Warm, inviting, clear call to action"
+    },
+    "training_mode": {
+      "structure": "Centered Flashcard Layout",
+      "interaction": "Click to flip card. Front: Defect Name/Context. Back: Cause & Remedy. Buttons for 'I knew this' / 'I learned this' to update spaced repetition."
+    },
+    "diagnostic_mode": {
+      "structure": "Split Screen (Desktop) or Stacked (Mobile)",
+      "left_panel": "Scenario/Simulation Description (e.g., 'Your baguette is flat and pale').",
+      "right_panel": "Interactive Diagnostic Tool. Step 1: Identify Symptom. Step 2: Identify Cause. Step 3: Choose Remedy.",
+      "feedback_ui": "Immediate visual feedback on each step."
+    },
+    "quiz_mode": {
+      "structure": "Gamified Question Flow",
+      "elements": "Progress bar at top. Question card in center. 4 Large option buttons. Score counter animated.",
+      "transitions": "Slide in/out animations between questions."
+    },
+    "technical_cards": {
+      "structure": "Masonry or Responsive Grid",
+      "features": "Search bar with 'flour dust' effect. Filter pills (Fermentation, Kneading, Baking). Modal for detailed card view."
+    }
+  },
+  "components_library": {
+    "buttons": {
+      "primary": "bg-[#8B4513] text-white hover:bg-[#A0522D] rounded-full px-8 py-3 font-medium transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5",
+      "secondary": "bg-[#FAF9F6] text-[#8B4513] border-2 border-[#8B4513] hover:bg-[#F5DEB3] rounded-full px-8 py-3 font-medium transition-all",
+      "ghost": "text-[#8B4513] hover:bg-[#F5DEB3]/20 rounded-lg px-4 py-2"
+    },
+    "cards": {
+      "base": "bg-white rounded-2xl border border-[#E6C9A8]/30 shadow-[0_2px_8px_rgba(139,69,19,0.05)] overflow-hidden transition-all duration-300",
+      "interactive": "hover:shadow-[0_12px_24px_rgba(139,69,19,0.1)] hover:border-[#D2691E]/30 cursor-pointer"
+    },
+    "inputs": {
+      "base": "bg-[#FAF9F6] border-[#E6C9A8] focus:border-[#8B4513] focus:ring-1 focus:ring-[#8B4513] rounded-lg"
+    },
+    "badges": {
+      "default": "bg-[#F5DEB3] text-[#5D2906] px-3 py-1 rounded-full text-sm font-medium",
+      "success": "bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm",
+      "warning": "bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm"
+    }
+  },
+  "assets": {
+    "icons": {
+      "library": "lucide-react",
+      "mapping": {
+        "training": "BookOpen",
+        "diagnostic": "Stethoscope",
+        "quiz": "Trophy",
+        "cards": "Library",
+        "profile": "User",
+        "bread": "Croissant",
+        "wheat": "Wheat",
+        "fire": "Flame",
+        "check": "CheckCircle2",
+        "error": "AlertCircle"
+      }
+    },
+    "images": {
+      "hero_bg": "https://images.unsplash.com/photo-1772316721788-f5100b4e1c4b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1OTV8MHwxfHNlYXJjaHwxfHxzb3VyZG91Z2glMjBicmVhZCUyMGxvYWYlMjBvbiUyMHdvb2RlbiUyMHRhYmxlfGVufDB8fHx8MTc3MzQ5OTY0OXww&ixlib=rb-4.1.0&q=85",
+      "baker_hands": "https://images.unsplash.com/photo-1612884610549-ce221d92514a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NDh8MHwxfHNlYXJjaHwxfHxiYWtlciUyMGtuZWFkaW5nJTIwZG91Z2h8ZW58MHx8fHwxNzczNDk5NjQ5fDA&ixlib=rb-4.1.0&q=85",
+      "texture_overlay": "Add a subtle grain or paper texture overlay to the entire app using CSS 'before' pseudo-element on body with low opacity."
+    }
+  },
+  "motion_guidelines": {
+    "library": "framer-motion",
+    "principles": {
+      "card_hover": "scale: 1.02, transition: { duration: 0.2 }",
+      "page_transition": "initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 }, exit: { opacity: 0, y: -20 }",
+      "feedback_pop": "scale: [1, 1.2, 1], transition: { duration: 0.3 }"
+    }
+  },
+  "accessibility_rules": {
+    "contrast": "Ensure text on #F5DEB3 (Wheat) is dark enough (#3E2723).",
+    "interactive": "All clickable elements must have min-height 44px.",
+    "focus": "Visible focus ring color: #8B4513."
+  },
+  "instructions_to_main_agent": [
+    "INSTALL framer-motion: `yarn add framer-motion`",
+    "USE localStorage for all data persistence (User progress, scores, badges). Structure the data carefully.",
+    "IMPLEMENT 'Spaced Repetition' logic simple: Store 'next_review_date' for each defect based on user performance.",
+    "NO AUTHENTICATION: Create a default 'User' profile in localStorage on first visit.",
+    "USE 'Merriweather' for all Headings and 'Outfit' for Body text. Import them in index.css.",
+    "Keep the UI 'Warm' and 'Tactile'. Avoid standard cold SaaS look.",
+    "Strictly follow the color palette. Do not use default blue/gray colors.",
+    "Use the provided image URLs for visual richness but rely on text for the actual defect descriptions as per requirements.",
+    "Create a 'Badges' system (e.g., 'Apprenti', 'Mitron', 'Boulanger', 'Maître') based on points."
+  ],
+  "universal_guidelines": [
+    "Do not use generic centered layouts. Use grids and asymmetry where appropriate, but keep it balanced.",
+    "Create depth through layered design elements.",
+    "Use 2-3x more spacing than feels comfortable.",
+    "Every interaction needs micro-animations.",
+    "Use 'sonner' for toasts.",
+    "Components MUST use named exports.",
+    "Pages MUST use default exports."
+  ]
+}
