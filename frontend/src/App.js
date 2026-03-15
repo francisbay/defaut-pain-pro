@@ -8,6 +8,7 @@ import DiagnosticPage from "@/pages/DiagnosticPage";
 import QuizPage from "@/pages/QuizPage";
 import TechnicalCardsPage from "@/pages/TechnicalCardsPage";
 import ProfilePage from "@/pages/ProfilePage";
+import ActivitiesPage from "@/pages/ActivitiesPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/entrainement" element={<TrainingPage />} />
             <Route path="/diagnostic" element={<DiagnosticPage />} />
             <Route path="/quiz" element={<QuizPage />} />
+            <Route path="/activites" element={<ActivitiesPage />} />
             <Route path="/fiches" element={<TechnicalCardsPage />} />
             <Route path="/profil" element={<ProfilePage />} />
           </Routes>

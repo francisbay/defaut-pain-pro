@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { BookOpen, Stethoscope, Trophy, Library, User, Wheat, Menu, X } from "lucide-react";
+import { BookOpen, Stethoscope, Trophy, Library, User, Wheat, Menu, X, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { getProgress, getCurrentBadge } from "@/lib/progressManager";
 
 const NAV_ITEMS = [
+  { path: "/activites", label: "Activités", icon: Sparkles },
   { path: "/entrainement", label: "Entraînement", icon: BookOpen },
   { path: "/diagnostic", label: "Diagnostic", icon: Stethoscope },
   { path: "/quiz", label: "Quiz", icon: Trophy },

@@ -1,12 +1,20 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { BookOpen, Stethoscope, Trophy, Library, ArrowRight, Wheat, Award } from "lucide-react";
+import { BookOpen, Stethoscope, Trophy, Library, ArrowRight, Wheat, Award, Sparkles } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { getProgress, getCurrentBadge, getNextBadge, getLevelProgress } from "@/lib/progressManager";
 
 const MODES = [
+  {
+    path: "/activites",
+    title: "Activités interactives",
+    description: "Pendu, mots croisés, glisser-déposer et cas diagnostics par niveau (SAP, BP, BM)",
+    icon: Sparkles,
+    color: "bg-[#D2691E]",
+    lightColor: "bg-[#D2691E]/5",
+  },
   {
     path: "/entrainement",
     title: "Entraînement",

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Library, Search, ChevronDown, ChevronUp, AlertCircle, Wrench, Layers } from "lucide-react";
+import { Library, Search, ChevronDown, ChevronUp, AlertCircle, Wrench, Layers, ImageIcon } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { toast } from "sonner";
 import axios from "axios";
+import { DEFECT_IMAGES } from "@/lib/activityData";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
@@ -134,9 +135,14 @@ export default function TechnicalCardsPage() {
                         className="w-full text-left p-6 flex items-start gap-4"
                         data-testid={`defect-toggle-${defect.id}`}
                       >
-                        <div className={`w-10 h-10 rounded-xl ${colors.bg} flex items-center justify-center flex-shrink-0 mt-0.5`}>
-                          <Layers className={`w-5 h-5 ${colors.text}`} />
-                        </div>
+                        {DEFECT_IMAGES[defect.id] ? (
+                          <img src={DEFECT_IMAGES[defect.id]} alt={defect.name}
+                            className="w-16 h-16 rounded-xl object-cover flex-shrink-0" />
+                        ) : (
+                          <div className={`w-10 h-10 rounded-xl ${colors.bg} flex items-center justify-center flex-shrink-0 mt-0.5`}>
+                            <Layers className={`w-5 h-5 ${colors.text}`} />
+                          </div>
+                        )}
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2 mb-1">
                             <h3 className="font-heading text-lg font-semibold text-[#3E2723]">{defect.name}</h3>
@@ -162,6 +168,16 @@ export default function TechnicalCardsPage() {
                           >
                             <div className="px-6 pb-6">
                               <Separator className="mb-6 bg-[#E6C9A8]/30" />
+
+                              {/* Image from technomitron */}
+                              {DEFECT_IMAGES[defect.id] && (
+                                <div className="mb-6">
+                                  <img src={DEFECT_IMAGES[defect.id]} alt={defect.name}
+                                    className="w-full max-h-56 object-cover rounded-xl border border-[#E6C9A8]/30"
+                                    data-testid={`defect-image-${defect.id}`} />
+                                  <p className="text-xs text-[#8D6E63] mt-1 italic">Source : technomitron.aainb.com</p>
+                                </div>
+                              )}
 
                               {/* Stage */}
                               <div className="mb-6">

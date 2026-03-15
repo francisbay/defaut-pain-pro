@@ -1,0 +1,252 @@
+// Activity data for L'Apprenti Boulanger
+// Images from technomitron.aainb.com
+
+export const DEFECT_IMAGES = {
+  "pain-plat": "https://i0.wp.com/technomitron.aainb.com/wp-content/uploads/2018/09/Defauts-pain-plat.jpg?resize=622%2C265&ssl=1",
+  "pain-peu-developpe": "https://i0.wp.com/technomitron.aainb.com/wp-content/uploads/2018/09/D%C3%A9fauts-peu-d%C3%A9velopp%C3%A9.jpg?resize=622%2C270&ssl=1",
+  "pain-baise": "https://i0.wp.com/technomitron.aainb.com/wp-content/uploads/2018/09/D%C3%A9fauts-pain-bais%C3%A9.jpg?resize=600%2C275&ssl=1",
+  "croute-ecaille": "https://i0.wp.com/technomitron.aainb.com/wp-content/uploads/2018/09/M10-015.jpg?resize=600%2C405&ssl=1",
+  "grignes-dechirees": "https://i0.wp.com/technomitron.aainb.com/wp-content/uploads/2018/09/D%C3%A9fauts-grignes-d%C3%A9chir%C3%A9es.jpg?resize=619%2C251&ssl=1",
+  "quality": "https://i0.wp.com/technomitron.aainb.com/wp-content/uploads/2018/09/word-image-161.jpeg?resize=1135%2C754&ssl=1",
+  "petrissage": "https://i0.wp.com/technomitron.aainb.com/wp-content/uploads/2018/11/une-image-contenant-bol-assis-interieur-aliment.jpeg?fit=600%2C450&ssl=1",
+  "fermentation": "https://i0.wp.com/technomitron.aainb.com/wp-content/uploads/2018/11/MG154_600.jpg?fit=600%2C450&ssl=1",
+  "cuisson": "https://i0.wp.com/technomitron.aainb.com/wp-content/uploads/2018/07/http-www-technomitron-aainb-com-photo-module9-m0-3.jpeg?fit=341%2C450&ssl=1",
+};
+
+export const LEVELS = [
+  { id: "SAP", name: "SAP", label: "Découverte", description: "Apprenez les bases du vocabulaire boulanger", color: "#2E7D32", difficulty: 1 },
+  { id: "Emotion", name: "Émotion", label: "Ludique", description: "Jouez et apprenez de manière amusante", color: "#F57C00", difficulty: 2 },
+  { id: "BP", name: "BP", label: "Professionnel", description: "Maîtrisez le diagnostic des défauts du pain", color: "#0277BD", difficulty: 3 },
+  { id: "BM", name: "BM", label: "Expert", description: "Devenez un maître diagnosticien", color: "#8B4513", difficulty: 4 },
+];
+
+export const HANGMAN_WORDS = {
+  SAP: [
+    { word: "PAIN", clue: "Aliment de base du boulanger", image: "quality" },
+    { word: "FARINE", clue: "Poudre obtenue par mouture du blé", image: "petrissage" },
+    { word: "FOUR", clue: "Appareil de cuisson du pain", image: "cuisson" },
+    { word: "SEL", clue: "Ingrédient qui donne du goût à la pâte" },
+    { word: "EAU", clue: "Liquide essentiel au pétrissage" },
+    { word: "MIE", clue: "Partie intérieure moelleuse du pain" },
+    { word: "PATE", clue: "Mélange de farine et d'eau travaillé" },
+    { word: "CROUTE", clue: "Partie extérieure croustillante du pain" },
+  ],
+  Emotion: [
+    { word: "LEVURE", clue: "Micro-organisme responsable de la fermentation", image: "fermentation" },
+    { word: "GRIGNE", clue: "Ouverture formée par la scarification", image: "grignes-dechirees" },
+    { word: "POINTAGE", clue: "Première phase de fermentation après pétrissage" },
+    { word: "BOULAGE", clue: "Mise en forme ronde de la pâte" },
+    { word: "MALT", clue: "Adjuvant qui favorise la coloration" },
+    { word: "LEVAIN", clue: "Pâte fermentée naturellement", image: "fermentation" },
+    { word: "BUEE", clue: "Vapeur d'eau envoyée dans le four" },
+    { word: "SOLE", clue: "Surface de cuisson du four" },
+  ],
+  BP: [
+    { word: "PETRISSAGE", clue: "Action de mélanger et travailler la pâte", image: "petrissage" },
+    { word: "FERMENTATION", clue: "Transformation de la pâte par les levures", image: "fermentation" },
+    { word: "SCARIFICATION", clue: "Incision de la surface du pâton avant cuisson" },
+    { word: "HYDRATATION", clue: "Quantité d'eau par rapport à la farine" },
+    { word: "RESSUAGE", clue: "Refroidissement du pain après cuisson" },
+    { word: "APPRET", clue: "Deuxième phase de fermentation" },
+    { word: "BANNETON", clue: "Panier de fermentation en osier" },
+    { word: "FLEURAGE", clue: "Saupoudrage de farine pour éviter le collage" },
+  ],
+  BM: [
+    { word: "DIASTASIQUE", clue: "Relatif à l'activité enzymatique de la farine" },
+    { word: "HYGROMETRIE", clue: "Mesure du taux d'humidité de l'air" },
+    { word: "GELATINISATION", clue: "Transformation de l'amidon sous l'effet de la chaleur" },
+    { word: "AMYLASE", clue: "Enzyme qui dégrade l'amidon en sucres" },
+    { word: "ASCORBIQUE", clue: "Acide utilisé comme améliorant" },
+    { word: "AUTOLYSE", clue: "Repos de la pâte sans levure après mélange" },
+  ],
+};
+
+export const CROSSWORD_PUZZLES = {
+  SAP: {
+    title: "Les bases de la boulangerie",
+    gridSize: { rows: 4, cols: 7 },
+    words: [
+      { number: 1, word: "PAIN", direction: "down", startRow: 0, startCol: 2, clue: "Aliment de base du boulanger" },
+      { number: 2, word: "FARINE", direction: "across", startRow: 1, startCol: 1, clue: "Poudre de blé utilisée pour le pain" },
+      { number: 3, word: "MIE", direction: "across", startRow: 2, startCol: 1, clue: "Partie intérieure moelleuse du pain" },
+    ],
+  },
+  Emotion: {
+    title: "Vocabulaire du fournil",
+    gridSize: { rows: 8, cols: 8 },
+    words: [
+      { number: 1, word: "CUISSON", direction: "down", startRow: 0, startCol: 4, clue: "Transformation de la pâte par la chaleur du four" },
+      { number: 2, word: "CROUTE", direction: "across", startRow: 1, startCol: 1, clue: "Partie extérieure croustillante du pain" },
+      { number: 3, word: "GRIGNE", direction: "across", startRow: 2, startCol: 2, clue: "Ouverture des coups de lame après cuisson" },
+      { number: 4, word: "SOLE", direction: "across", startRow: 3, startCol: 4, clue: "Surface du four sur laquelle on pose le pain" },
+      { number: 5, word: "FOUR", direction: "across", startRow: 5, startCol: 3, clue: "Appareil dans lequel on cuit le pain" },
+      { number: 6, word: "PAIN", direction: "across", startRow: 6, startCol: 1, clue: "Produit fini du boulanger" },
+    ],
+  },
+  BP: {
+    title: "Diagnostic technique",
+    gridSize: { rows: 8, cols: 10 },
+    words: [
+      { number: 1, word: "POINTAGE", direction: "down", startRow: 0, startCol: 4, clue: "Première fermentation en masse de la pâte" },
+      { number: 2, word: "CROUTE", direction: "across", startRow: 1, startCol: 2, clue: "Enveloppe extérieure du pain" },
+      { number: 3, word: "MIE", direction: "across", startRow: 2, startCol: 3, clue: "Structure alvéolée intérieure du pain" },
+      { number: 4, word: "PAIN", direction: "across", startRow: 3, startCol: 1, clue: "Produit de la panification" },
+      { number: 5, word: "MALT", direction: "across", startRow: 4, startCol: 1, clue: "Adjuvant enzymatique pour la coloration" },
+      { number: 6, word: "FARINE", direction: "across", startRow: 5, startCol: 3, clue: "Matière première issue de la mouture du blé" },
+      { number: 7, word: "GRIGNE", direction: "across", startRow: 6, startCol: 4, clue: "Développement de la scarification au four" },
+    ],
+  },
+  BM: {
+    title: "Maîtrise avancée",
+    gridSize: { rows: 8, cols: 10 },
+    words: [
+      { number: 1, word: "RESSUAGE", direction: "down", startRow: 0, startCol: 4, clue: "Phase de refroidissement après la sortie du four" },
+      { number: 2, word: "BUEE", direction: "across", startRow: 1, startCol: 2, clue: "Vapeur d'eau injectée dans le four" },
+      { number: 3, word: "POUSSE", direction: "across", startRow: 2, startCol: 1, clue: "Développement de la pâte sous l'action des gaz" },
+      { number: 4, word: "SOLE", direction: "across", startRow: 3, startCol: 4, clue: "Pierre ou surface de cuisson du four" },
+      { number: 5, word: "LEVURE", direction: "across", startRow: 4, startCol: 1, clue: "Agent biologique de fermentation" },
+      { number: 6, word: "MALT", direction: "across", startRow: 5, startCol: 3, clue: "Orge germé utilisé comme correcteur" },
+      { number: 7, word: "GRIGNE", direction: "across", startRow: 6, startCol: 4, clue: "Résultat de l'ouverture des coups de lame" },
+    ],
+  },
+};
+
+export const DRAG_DROP_EXERCISES = {
+  SAP: {
+    title: "Associez chaque défaut à sa catégorie",
+    instruction: "Cliquez sur un défaut puis sur la catégorie correspondante.",
+    pairs: [
+      { left: "Pain plat", right: "Défauts d'aspect", image: "pain-plat" },
+      { left: "Croûte pâle", right: "Défauts de la croûte" },
+      { left: "Grignes déchirées", right: "Défauts de la grigne", image: "grignes-dechirees" },
+      { left: "Mie collante", right: "Défauts de la mie" },
+      { left: "Pain baisé", right: "Défauts d'aspect", image: "pain-baise" },
+      { left: "Croûte molle", right: "Défauts de la croûte" },
+    ],
+  },
+  Emotion: {
+    title: "Associez chaque défaut à sa cause principale",
+    instruction: "Quel problème provoque chaque défaut ?",
+    pairs: [
+      { left: "Pain plat", right: "Manque de force", image: "pain-plat" },
+      { left: "Croûte rouge", right: "Excès de cuisson" },
+      { left: "Mie trop serrée", right: "Excès de force" },
+      { left: "Croûte cloquée", right: "Excès de buée" },
+      { left: "Pain peu développé", right: "Manque de fermentation", image: "pain-peu-developpe" },
+      { left: "Croûte terne", right: "Manque de buée" },
+    ],
+  },
+  BP: {
+    title: "Associez chaque cause à son remède",
+    instruction: "Trouvez le remède adapté à chaque problème technique.",
+    pairs: [
+      { left: "Farine faible", right: "Utiliser une farine de force" },
+      { left: "Excès de levure", right: "Réduire la quantité de levure" },
+      { left: "Pâte trop ferme", right: "Augmenter l'hydratation" },
+      { left: "Manque de buée", right: "Assurer une buée suffisante" },
+      { left: "Cuisson trop longue", right: "Réduire le temps de cuisson" },
+      { left: "Oubli du sel", right: "Ne pas oublier le sel" },
+    ],
+  },
+  BM: {
+    title: "Diagnostic complet : symptôme → cause → remède",
+    instruction: "Associez chaque observation à la bonne explication technique.",
+    pairs: [
+      { left: "Croûte rouge + mie collante", right: "Farine hyperdiastasique" },
+      { left: "Pain plat + croûte molle", right: "Manque de force de la pâte" },
+      { left: "Grignes déchirées + croûte terne", right: "Manque de buée à l'enfournement" },
+      { left: "Mie qui s'émiette + croûte épaisse", right: "Excès de force et cuisson prolongée" },
+      { left: "Pain cintré + dessous brûlé", right: "Sole trop chaude" },
+      { left: "Croûte cloquée + mie humide", right: "Excès de fermentation en chambre" },
+    ],
+  },
+};
+
+export const DIAGNOSTIC_CASES = {
+  SAP: [
+    {
+      id: "dc-sap-1",
+      image: "pain-plat",
+      title: "Observation au fournil",
+      context: "Vous sortez vos baguettes du four. Elles sont aplaties et manquent de volume.",
+      defectId: "pain-plat",
+      question: "Quel défaut observez-vous ?",
+      options: ["Pain plat", "Pain baisé", "Croûte rouge", "Mie collante"],
+      correctIndex: 0,
+      explanation: "Ce pain est plat : il manque de volume et de tenue. Cela peut venir d'un manque de force, d'un excès de pousse ou d'un manque de chaleur.",
+    },
+    {
+      id: "dc-sap-2",
+      image: "grignes-dechirees",
+      title: "Problème de grigne",
+      context: "Les coups de lame de vos pains sont irréguliers et déchirés.",
+      defectId: "grignes-dechirees",
+      question: "Quel défaut observez-vous ?",
+      options: ["Absence de grignes", "Grignes déchirées", "Croûte qui s'écaille", "Pain peu développé"],
+      correctIndex: 1,
+      explanation: "Les grignes déchirées sont dues à un manque de buée, des courants d'air ou un problème de scarification.",
+    },
+  ],
+  Emotion: [
+    {
+      id: "dc-emo-1",
+      image: "pain-peu-developpe",
+      title: "Pain qui ne pousse pas",
+      context: "Votre pain sort du four mais il est petit et dense, sans le volume espéré.",
+      defectId: "pain-peu-developpe",
+      question: "Quelle est la cause la plus probable ?",
+      options: ["Excès de levure", "Manque de fermentation", "Excès de buée", "Façonnage trop lâche"],
+      correctIndex: 1,
+      explanation: "Un pain peu développé manque souvent de fermentation : levure insuffisante, apprêt trop court ou température trop basse.",
+    },
+    {
+      id: "dc-emo-2",
+      image: "pain-baise",
+      title: "Pains collés",
+      context: "Plusieurs pains se sont collés entre eux pendant la cuisson.",
+      defectId: "pain-baise",
+      question: "Comment éviter ce problème ?",
+      options: ["Augmenter la buée", "Espacer davantage les pâtons", "Pétrir plus longtemps", "Augmenter la levure"],
+      correctIndex: 1,
+      explanation: "Les pains baisés sont des pains qui se touchent à la cuisson. Il faut mieux espacer les pâtons et réduire la pousse.",
+    },
+  ],
+  BP: [
+    {
+      id: "dc-bp-1",
+      image: "croute-ecaille",
+      title: "Croûte fragile",
+      context: "La croûte de vos pains se détache en écailles. Des morceaux tombent quand on les manipule.",
+      defectId: "croute-ecaille",
+      question: "Quelle est l'origine principale de ce défaut ?",
+      options: ["Manque de sel", "Excès d'apprêt et croûte fine", "Pâte trop ferme", "Manque de levure"],
+      correctIndex: 1,
+      explanation: "Une croûte qui s'écaille provient souvent d'un excès d'apprêt, de buée ou d'acide ascorbique, créant une croûte trop fine.",
+    },
+  ],
+  BM: [
+    {
+      id: "dc-bm-1",
+      image: "quality",
+      title: "Diagnostic multi-critères",
+      context: "Ce pain présente une croûte rouge foncée et une mie collante. Le boulanger utilise une farine de blé récent.",
+      defectId: "mie-collante",
+      question: "Quel est le diagnostic le plus complet ?",
+      options: [
+        "Farine hyperdiastasique : excès d'amylases dû au blé germé",
+        "Excès de pétrissage et manque de sel",
+        "Température du four trop basse",
+        "Manque de pointage et excès de levure",
+      ],
+      correctIndex: 0,
+      explanation: "La combinaison croûte rouge + mie collante indique une farine trop diastasique (blé germé). L'excès d'amylases provoque une coloration excessive et une mie pâteuse.",
+    },
+  ],
+};
+
+export const ACTIVITY_TYPES = [
+  { id: "dragdrop", name: "Glisser-Déposer", icon: "GripVertical", description: "Associez les éléments par paires" },
+  { id: "hangman", name: "Le Pendu", icon: "Gamepad2", description: "Devinez le mot caché lettre par lettre" },
+  { id: "crossword", name: "Mots Croisés", icon: "Grid3X3", description: "Remplissez la grille avec le vocabulaire technique" },
+  { id: "diagnostic", name: "Cas Diagnostic", icon: "Stethoscope", description: "Analysez une image et identifiez le défaut" },
+];
