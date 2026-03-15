@@ -14,6 +14,7 @@ const DEFAULT_PROGRESS = {
     quizCompleted: 0,
     quizBestScore: 0,
   },
+  activityCompletions: {},
   spacedRepetition: {},
   history: [],
 };
@@ -169,4 +170,32 @@ export function getDefectsToReview(allDefectIds) {
 export function resetProgress() {
   localStorage.removeItem(STORAGE_KEY);
   return DEFAULT_PROGRESS;
+}
+
+export function markActivityCompleted(level, activityType) {
+  const progress = getProgress();
+  if (!progress.activityCompletions) progress.activityCompletions = {};
+  const key = `${level}-${activityType}`;
+  progress.activityCompletions[key] = (progress.activityCompletions[key] || 0) + 1;
+  saveProgress(progress);
+  return progress;
+}
+
+export function getActivityCompletions(level, activityType) {
+  const progress = getProgress();
+  if (!progress.activityCompletions) return 0;
+  return progress.activityCompletions[`${level}-${activityType}`] || 0;
+}
+
+export function getLevelCompletions(level) {
+  const progress = getProgress();
+  if (!progress.activityCompletions) return {};
+  const result = {};
+  Object.entries(progress.activityCompletions).forEach(([key, count]) => {
+    if (key.startsWith(`${level}-`)) {
+      const type = key.replace(`${level}-`, "");
+      result[type] = count;
+    }
+  });
+  return result;
 }

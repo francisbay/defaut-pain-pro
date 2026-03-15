@@ -11,6 +11,10 @@ export const DEFECT_IMAGES = {
   "petrissage": "https://i0.wp.com/technomitron.aainb.com/wp-content/uploads/2018/11/une-image-contenant-bol-assis-interieur-aliment.jpeg?fit=600%2C450&ssl=1",
   "fermentation": "https://i0.wp.com/technomitron.aainb.com/wp-content/uploads/2018/11/MG154_600.jpg?fit=600%2C450&ssl=1",
   "cuisson": "https://i0.wp.com/technomitron.aainb.com/wp-content/uploads/2018/07/http-www-technomitron-aainb-com-photo-module9-m0-3.jpeg?fit=341%2C450&ssl=1",
+  "ressuage": "https://i0.wp.com/technomitron.aainb.com/wp-content/uploads/2018/07/http-www-technomitron-aainb-com-photo-module10-m.jpeg?resize=150%2C150&ssl=1",
+  "force-pate": "https://i0.wp.com/technomitron.aainb.com/wp-content/uploads/2018/10/word-image.jpeg?resize=150%2C150&ssl=1",
+  "alterations": "https://i0.wp.com/technomitron.aainb.com/wp-content/uploads/2018/10/une-image-contenant-mur-description-generee-avec.jpeg?resize=150%2C150&ssl=1",
+  "appellations": "https://i0.wp.com/technomitron.aainb.com/wp-content/uploads/2018/11/une-image-contenant-alimentation-chips-en-cas-d.jpeg?resize=150%2C150&ssl=1",
 };
 
 export const LEVELS = [
@@ -58,6 +62,8 @@ export const HANGMAN_WORDS = {
     { word: "AMYLASE", clue: "Enzyme qui dégrade l'amidon en sucres" },
     { word: "ASCORBIQUE", clue: "Acide utilisé comme améliorant" },
     { word: "AUTOLYSE", clue: "Repos de la pâte sans levure après mélange" },
+    { word: "RESSUAGE", clue: "Phase de refroidissement après sortie du four", image: "ressuage" },
+    { word: "BANNETON", clue: "Panier en osier pour la fermentation des pâtons" },
   ],
 };
 
@@ -186,6 +192,17 @@ export const DIAGNOSTIC_CASES = {
       correctIndex: 1,
       explanation: "Les grignes déchirées sont dues à un manque de buée, des courants d'air ou un problème de scarification.",
     },
+    {
+      id: "dc-sap-3",
+      image: "pain-baise",
+      title: "Pains en sortie de four",
+      context: "En sortant vos pains du four, vous remarquez que plusieurs se sont collés les uns aux autres.",
+      defectId: "pain-baise",
+      question: "Quel défaut observez-vous ?",
+      options: ["Croûte molle", "Pain cintré", "Pain baisé", "Pain plat"],
+      correctIndex: 2,
+      explanation: "Ce sont des pains baisés : ils se sont touchés pendant la cuisson car les pâtons étaient trop proches sur la sole.",
+    },
   ],
   Emotion: [
     {
@@ -210,6 +227,17 @@ export const DIAGNOSTIC_CASES = {
       correctIndex: 1,
       explanation: "Les pains baisés sont des pains qui se touchent à la cuisson. Il faut mieux espacer les pâtons et réduire la pousse.",
     },
+    {
+      id: "dc-emo-3",
+      image: "pain-plat",
+      title: "Manque de tenue",
+      context: "Vos baguettes sont étalées sur la sole, elles n'ont aucune tenue et sont complètement plates.",
+      defectId: "pain-plat",
+      question: "Quel est le problème principal ?",
+      options: ["Excès de sel", "Manque de force de la pâte", "Four trop chaud", "Excès de buée"],
+      correctIndex: 1,
+      explanation: "Un pain plat traduit un manque de force : farine faible, pâte trop douce, pâte froide ou manque de pointage.",
+    },
   ],
   BP: [
     {
@@ -222,6 +250,38 @@ export const DIAGNOSTIC_CASES = {
       options: ["Manque de sel", "Excès d'apprêt et croûte fine", "Pâte trop ferme", "Manque de levure"],
       correctIndex: 1,
       explanation: "Une croûte qui s'écaille provient souvent d'un excès d'apprêt, de buée ou d'acide ascorbique, créant une croûte trop fine.",
+    },
+    {
+      id: "dc-bp-2",
+      image: "grignes-dechirees",
+      title: "Analyse des grignes",
+      context: "Les grignes de vos pains sont grossières et déchirées. La croûte semble terne et sans éclat.",
+      defectId: "grignes-dechirees",
+      question: "Quel est le diagnostic le plus précis ?",
+      options: [
+        "Manque de buée et courants d'air pendant l'apprêt",
+        "Excès de levure et four trop chaud",
+        "Pâte trop hydratée et façonnage trop serré",
+        "Farine diastasique et pointage trop long",
+      ],
+      correctIndex: 0,
+      explanation: "La combinaison grignes déchirées + croûte terne indique un manque de buée à l'enfournement et un croûtage pendant la fermentation (courants d'air, couches sèches).",
+    },
+    {
+      id: "dc-bp-3",
+      image: "pain-peu-developpe",
+      title: "Problème de développement",
+      context: "Vos pains sortent du four avec un volume insuffisant. La mie est dense et les grignes peu ouvertes.",
+      defectId: "pain-peu-developpe",
+      question: "Quelle combinaison de causes est la plus probable ?",
+      options: [
+        "Pétrissage insuffisant + manque de buée + four trop chaud",
+        "Excès de levure + pâte trop douce",
+        "Sel oublié + excès de malt",
+        "Façonnage trop serré + pâte trop froide",
+      ],
+      correctIndex: 0,
+      explanation: "Un pain peu développé avec des grignes fermées traduit souvent un sous-pétrissage, un manque de buée et un four trop vif qui saisit la croûte trop vite.",
     },
   ],
   BM: [
@@ -241,6 +301,38 @@ export const DIAGNOSTIC_CASES = {
       correctIndex: 0,
       explanation: "La combinaison croûte rouge + mie collante indique une farine trop diastasique (blé germé). L'excès d'amylases provoque une coloration excessive et une mie pâteuse.",
     },
+    {
+      id: "dc-bm-2",
+      image: "croute-ecaille",
+      title: "Défaut complexe en chambre froide",
+      context: "Après une nuit en chambre de fermentation contrôlée, les pains présentent une croûte cloquée avec des pustules et la mie est légèrement humide au centre.",
+      defectId: "croute-cloquee",
+      question: "Quelle est l'analyse technique correcte ?",
+      options: [
+        "Excès de buée au four uniquement",
+        "Chambre trop humide, pâte chaude avant blocage et fermentation trop longue",
+        "Manque de sel et farine trop forte",
+        "Scarification trop profonde et four trop vif",
+      ],
+      correctIndex: 1,
+      explanation: "Les cloques résultent d'une condensation en surface : la pâte était trop chaude avant le blocage, la chambre trop humide et la durée de fermentation dépassait 24h.",
+    },
+    {
+      id: "dc-bm-3",
+      image: "pain-plat",
+      title: "Diagnostic de processus complet",
+      context: "En fin de journée, les dernières fournées donnent des pains plats avec une croûte molle. Le matin, les pains étaient corrects.",
+      defectId: "pain-plat",
+      question: "Comment expliquer cette dégradation progressive ?",
+      options: [
+        "Le four a perdu en chaleur au fil des cuissons",
+        "La pâte fermentée utilisée le matin n'est plus active",
+        "La pâte a surfermenté : excès de pousse cumulé avec la température ambiante du fournil qui monte",
+        "Les couches sont devenues humides au fil de la journée",
+      ],
+      correctIndex: 2,
+      explanation: "En fin de journée, la température du fournil augmente, accélérant la fermentation. Les pâtons surfermentent, perdent leur force, et donnent des pains plats et mous.",
+    },
   ],
 };
 
@@ -249,4 +341,5 @@ export const ACTIVITY_TYPES = [
   { id: "hangman", name: "Le Pendu", icon: "Gamepad2", description: "Devinez le mot caché lettre par lettre" },
   { id: "crossword", name: "Mots Croisés", icon: "Grid3X3", description: "Remplissez la grille avec le vocabulaire technique" },
   { id: "diagnostic", name: "Cas Diagnostic", icon: "Stethoscope", description: "Analysez une image et identifiez le défaut" },
+  { id: "quickquiz", name: "Quiz Rapide", icon: "Zap", description: "5 questions rapides sur les défauts du pain" },
 ];

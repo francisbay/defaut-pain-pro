@@ -1,8 +1,8 @@
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  GripVertical, Gamepad2, Grid3X3, Stethoscope,
-  ArrowLeft, Sparkles, ChevronRight, Layers
+  GripVertical, Gamepad2, Grid3X3, Stethoscope, Zap,
+  ArrowLeft, Sparkles, ChevronRight, Layers, CheckCircle2
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -12,13 +12,15 @@ import DragDropExercise from "@/components/DragDropExercise";
 import HangmanGame from "@/components/HangmanGame";
 import CrosswordPuzzle from "@/components/CrosswordPuzzle";
 import DiagnosticCase from "@/components/DiagnosticCase";
+import QuickQuiz from "@/components/QuickQuiz";
 import {
   LEVELS, HANGMAN_WORDS, CROSSWORD_PUZZLES,
   DRAG_DROP_EXERCISES, DIAGNOSTIC_CASES, ACTIVITY_TYPES,
 } from "@/lib/activityData";
+import { getLevelCompletions, markActivityCompleted } from "@/lib/progressManager";
 
 const ICON_MAP = {
-  GripVertical, Gamepad2, Grid3X3, Stethoscope,
+  GripVertical, Gamepad2, Grid3X3, Stethoscope, Zap,
 };
 
 export default function ActivitiesPage() {
@@ -45,19 +47,29 @@ export default function ActivitiesPage() {
     if (type.id === "hangman" && (!HANGMAN_WORDS[selectedLevel] || HANGMAN_WORDS[selectedLevel].length === 0)) available = false;
     if (type.id === "crossword" && !CROSSWORD_PUZZLES[selectedLevel]) available = false;
     if (type.id === "dragdrop" && !DRAG_DROP_EXERCISES[selectedLevel]) available = false;
+    if (type.id === "quickquiz") available = true;
     return { ...type, available };
   });
+
+  const completions = getLevelCompletions(selectedLevel);
+
+  const handleActivityComplete = (activityType) => {
+    markActivityCompleted(selectedLevel, activityType);
+    setActiveActivity(null);
+  };
 
   const renderActivity = () => {
     switch (activeActivity) {
       case "dragdrop":
-        return <DragDropExercise exercise={DRAG_DROP_EXERCISES[selectedLevel]} level={selectedLevel} onComplete={() => setActiveActivity(null)} />;
+        return <DragDropExercise exercise={DRAG_DROP_EXERCISES[selectedLevel]} level={selectedLevel} onComplete={() => handleActivityComplete("dragdrop")} />;
       case "hangman":
-        return randomHangmanWord ? <HangmanGame wordData={randomHangmanWord} onComplete={() => setActiveActivity(null)} /> : <p>Aucun mot disponible</p>;
+        return randomHangmanWord ? <HangmanGame wordData={randomHangmanWord} onComplete={() => handleActivityComplete("hangman")} /> : <p>Aucun mot disponible</p>;
       case "crossword":
-        return <CrosswordPuzzle puzzle={CROSSWORD_PUZZLES[selectedLevel]} onComplete={() => setActiveActivity(null)} />;
+        return <CrosswordPuzzle puzzle={CROSSWORD_PUZZLES[selectedLevel]} onComplete={() => handleActivityComplete("crossword")} />;
       case "diagnostic":
-        return randomDiagnosticCase ? <DiagnosticCase caseData={randomDiagnosticCase} onComplete={() => setActiveActivity(null)} /> : <p>Aucun cas disponible</p>;
+        return randomDiagnosticCase ? <DiagnosticCase caseData={randomDiagnosticCase} onComplete={() => handleActivityComplete("diagnostic")} /> : <p>Aucun cas disponible</p>;
+      case "quickquiz":
+        return <QuickQuiz level={selectedLevel} onComplete={() => handleActivityComplete("quickquiz")} />;
       default:
         return null;
     }
@@ -137,9 +149,16 @@ export default function ActivitiesPage() {
                             <Icon className="w-6 h-6" style={{ color: act.available ? level.color : "#999" }} />
                           </div>
                           <div className="flex-1">
-                            <h3 className="font-heading text-lg font-semibold text-[#3E2723] group-hover:text-[#8B4513] transition-colors">
-                              {act.name}
-                            </h3>
+                            <div className="flex items-center gap-2">
+                              <h3 className="font-heading text-lg font-semibold text-[#3E2723] group-hover:text-[#8B4513] transition-colors">
+                                {act.name}
+                              </h3>
+                              {completions[act.id] > 0 && (
+                                <Badge className="bg-[#2E7D32]/10 text-[#2E7D32] border-0 text-xs gap-1" data-testid={`completion-${act.id}`}>
+                                  <CheckCircle2 className="w-3 h-3" /> {completions[act.id]}x
+                                </Badge>
+                              )}
+                            </div>
                             <p className="text-sm text-[#5D4037]">{act.description}</p>
                           </div>
                           {act.available && (

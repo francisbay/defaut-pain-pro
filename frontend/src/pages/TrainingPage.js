@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { toast } from "sonner";
 import { addScore, updateSpacedRepetition, getProgress, getDefectsToReview } from "@/lib/progressManager";
+import { DEFECT_IMAGES } from "@/lib/activityData";
 import axios from "axios";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
@@ -114,7 +115,12 @@ export default function TrainingPage() {
           <AnimatePresence mode="wait">
             <motion.div key={current.id + completed} initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -30 }} transition={{ duration: 0.3 }}>
               {/* Defect Card */}
-              <Card className="bg-white rounded-2xl border border-[#E6C9A8]/30 shadow-[0_2px_8px_rgba(139,69,19,0.08)] mb-6" data-testid="defect-card">
+              <Card className="bg-white rounded-2xl border border-[#E6C9A8]/30 shadow-[0_2px_8px_rgba(139,69,19,0.08)] mb-6 overflow-hidden" data-testid="defect-card">
+                {DEFECT_IMAGES[current.id] && (
+                  <img src={DEFECT_IMAGES[current.id]} alt={current.name}
+                    className="w-full h-40 md:h-52 object-cover"
+                    data-testid="training-defect-image" />
+                )}
                 <CardContent className="p-6 md:p-8">
                   <Badge className="bg-[#F5DEB3] text-[#5D2906] border-0 mb-4">{current.categoryLabel}</Badge>
                   <h2 className="font-heading text-2xl font-semibold text-[#3E2723] mb-3" data-testid="defect-name">{current.name}</h2>

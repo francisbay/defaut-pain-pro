@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
 import { addScore, getProgress } from "@/lib/progressManager";
+import { DEFECT_IMAGES } from "@/lib/activityData";
 import axios from "axios";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
@@ -138,7 +139,12 @@ export default function DiagnosticPage() {
               </div>
 
               {/* Scenario */}
-              <Card className="bg-white rounded-2xl border border-[#E6C9A8]/30 shadow-[0_2px_8px_rgba(139,69,19,0.08)] mb-6" data-testid="scenario-card">
+              <Card className="bg-white rounded-2xl border border-[#E6C9A8]/30 shadow-[0_2px_8px_rgba(139,69,19,0.08)] mb-6 overflow-hidden" data-testid="scenario-card">
+                {scenario.defectId && DEFECT_IMAGES[scenario.defectId] && (
+                  <img src={DEFECT_IMAGES[scenario.defectId]} alt={scenario.defectName}
+                    className="w-full h-40 md:h-48 object-cover"
+                    data-testid="diagnostic-defect-image" />
+                )}
                 <CardContent className="p-6 md:p-8">
                   <Badge className="bg-[#D2691E]/10 text-[#D2691E] border-0 mb-3">Scénario</Badge>
                   <p className="text-[#3E2723] leading-relaxed text-lg italic" data-testid="scenario-narrative">
