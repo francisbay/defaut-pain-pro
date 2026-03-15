@@ -14,36 +14,36 @@ Application web pédagogique (jeu sérieux) pour apprentis boulangers (CAP, Bac 
 - **Auth**: Aucune (localStorage uniquement)
 
 ## User Personas
-1. **Apprenti CAP Boulanger** - Apprend les bases, utilise principalement l'entraînement et les fiches
-2. **Apprenti Bac Pro** - Niveau avancé, utilise le diagnostic et le quiz
+1. **Apprenti SAP** - Découverte des bases
+2. **Apprenti Émotion** - Apprentissage ludique
+3. **Apprenti BP** - Formation professionnelle
+4. **Apprenti BM** - Diagnostic expert
 
-## Core Requirements
-- 4 modes de jeu (Entraînement, Diagnostic, Quiz, Fiches techniques)
-- 18 défauts de pain structurés en 4 catégories
-- Système de score, niveaux, badges
-- Répétition espacée
-- Interface en français, thème boulangerie
+## What's Been Implemented
 
-## What's Been Implemented (2026-03-14)
-- ✅ Backend complet avec 18 défauts, endpoints quiz/diagnostic/fiches
-- ✅ 6 pages frontend (Accueil, Entraînement, Diagnostic, Quiz, Fiches, Profil)
-- ✅ Système de progression (score, niveaux, badges, répétition espacée)
-- ✅ Design thème boulangerie (Merriweather + Outfit, palette beige/brun/blé)
-- ✅ Animations Framer Motion légères
-- ✅ Tous les tests passés (API + UI)
+### Phase 1 (2026-03-14)
+- Backend 18 défauts, API quiz/diagnostic/fiches
+- 6 pages (Accueil, Entraînement, Diagnostic, Quiz, Fiches, Profil)
+- Progression (score, niveaux, badges, répétition espacée)
+- Design thème boulangerie
+
+### Phase 2 (2026-03-15) - Activités interactives
+- **4 niveaux pédagogiques**: SAP, Émotion, BP, BM
+- **Page Activités** avec sélection de niveau et grille d'activités
+- **Glisser-Déposer**: Association défauts↔causes par niveau
+- **Le Pendu**: Vocabulaire boulanger avec images et SVG animé
+- **Mots Croisés**: Grilles vérifiées par niveau (3-7 mots)
+- **Cas Diagnostic**: Scénarios avec images technomitron
+- **Images technomitron** intégrées dans fiches, activités et diagnostics
+- **Navigation** mise à jour avec lien Activités
 
 ## Prioritized Backlog
-### P0 (Done)
-- Tous les modes de jeu fonctionnels
-- Données pédagogiques complètes
-- Système de progression
-
 ### P1 (Next)
-- Ajout de plus de défauts (pâtes)
 - Mode multijoueur/classement
-- Export PDF des fiches techniques
+- Plus de cas diagnostics par niveau
+- Timer quiz + mode chrono
 
 ### P2 (Future)
-- Mode hors-ligne (PWA)
-- Statistiques détaillées par catégorie
-- Timer sur les questions quiz
+- PWA offline
+- Export PDF fiches
+- Statistiques par catégorie
